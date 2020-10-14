@@ -7,12 +7,12 @@ export default class Post {
     }
 
     toString() {
-        toString() {
-            return JSON.stringify({
-                title: this.title,
-                img: this.img,
-                date: this.date.toJSON()
-            }, null, 2);
-        }
-    } //возвращает объект в JSON формате 
-}
+        return JSON.stringify({
+            date: this.date.toJSON(),
+            img: this.img,
+            title: this.title
+        }, null, 2);
+    }
+
+   
+} 
