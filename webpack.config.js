@@ -14,6 +14,21 @@ module.exports = {
         filename: '[name].[contenthash].js', //будут подставляться названия точек входа
         path: path.resolve(__dirname, 'dist') //системный путь к текущему каталогу
     },
+    resolve: {
+        extensions: ['.js', '.json', '.png'],
+        alias: {
+            '@': path.resolve(__dirname, 'src'),
+            '@model': path.resolve(__dirname, 'src/model'),
+            '@css': path.resolve(__dirname, 'src/css'),
+            '@assets': path.resolve(__dirname, 'src/assets')
+        },
+        optimization: {
+            splitChunks: 
+            {
+            chunks: 'all'
+            }
+        },
+    },
     plugins: [
         new HTMLWebpackPlugin({template: './index.html'}),
         new CleanWebpackPlugin(),
@@ -31,6 +46,14 @@ module.exports = {
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
                 use: ['file-loader'],
+            },
+            {
+                test: /\.xml$/,
+                use: ['xml-loader']
+            },
+            {
+                test: /\.csv$/,
+                use: ['csv-loader']
             }   
         ] //содержит описание определённых типов лоадеров
     },

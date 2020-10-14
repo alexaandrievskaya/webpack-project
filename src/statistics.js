@@ -1,15 +1,16 @@
 //отслеживаем клики на глобальном документа
+import * as $ from 'jquery';
+
 function createStatistics() {
     let counter = 0;
     let isDestroyed = false;
     const listener = () => counter++;
 
-    document.addEventListener('click', listener);
+    $(document).on('click', listener);
 
     return {
         destroy() {
-            document.removeEventListener('click', listener);
-            isDestroyed = true;
+            $(document).off('click', listener); isDestroyed = true;
         },
 
         getClicks() {
