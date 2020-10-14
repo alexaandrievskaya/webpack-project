@@ -17,6 +17,10 @@ h1 {
     margin-right: auto;
 }
 
+.code { 
+    color: darkred; 
+}
+
 .webpack-logo {
     background-image: url(../assets/icon-square-big.png.png);
     background-size: cover;
